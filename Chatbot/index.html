@@ -1,0 +1,652 @@
+<!-- Specify the standard HTML5 document type -->
+<!DOCTYPE html>
+<!-- Open the HTML root element with English language settings -->
+<html lang="en">
+<!-- Head section containing metadata, fonts, and styling -->
+<head>
+  <!-- Set UTF-8 character encoding -->
+  <meta charset="UTF-8">
+  <!-- Ensure proper scaling across mobile and desktop devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Set browser tab title -->
+  <title>Northstar Support Hub</title>
+  <!-- Load clean Google Font Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- Preconnect to fonts static domain -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Import Inter font weights -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Internal styling block matching the clean dashboard UI -->
+  <style>
+    /* CSS Variables for design system tokens */
+    :root {
+      /* Background tint matching the screenshot */
+      --bg-color: #F8F9FA;
+      /* Card surface background */
+      --card-bg: #FFFFFF;
+      /* Main text color */
+      --text-main: #1E293B;
+      /* Secondary muted text */
+      --text-muted: #64748B;
+      /* Brand accent blue */
+      --brand-primary: #0284C7;
+      /* Brand accent hover */
+      --brand-hover: #0369A1;
+      /* Border line color */
+      --border-color: #E2E8F0;
+      /* Shadow token */
+      --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      /* Active pill background */
+      --pill-active: #E0F2FE;
+    }
+    /* Universal box-sizing reset */
+    * {
+      /* Ensure padding and border are included in total dimensions */
+      box-sizing: border-box;
+      /* Remove default browser margin */
+      margin: 0;
+      /* Remove default browser padding */
+      padding: 0;
+    }
+    /* Body typography and page container styling */
+    body {
+      /* Apply Inter font */
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      /* Apply page background */
+      background-color: var(--bg-color);
+      /* Apply primary text color */
+      color: var(--text-main);
+      /* Minimum height to fill viewport */
+      min-height: 100vh;
+      /* Flexbox column layout */
+      display: flex;
+      /* Arrange children vertically */
+      flex-direction: column;
+    }
+    /* Top navigation header */
+    header.navbar {
+      /* White background */
+      background: #FFFFFF;
+      /* Border separator */
+      border-bottom: 1px solid var(--border-color);
+      /* Padding inside navbar */
+      padding: 14px 32px;
+      /* Flex layout for alignment */
+      display: flex;
+      /* Push nav items to the right */
+      justify-content: space-between;
+      /* Center items vertically */
+      align-items: center;
+    }
+    /* Logo brand title */
+    .brand-logo {
+      /* Semi-bold text */
+      font-weight: 700;
+      /* Font size */
+      font-size: 16px;
+      /* Text color */
+      color: var(--text-main);
+      /* Remove text decoration */
+      text-decoration: none;
+      /* Flex alignment for logo icon */
+      display: flex;
+      /* Center icon with text */
+      align-items: center;
+      /* Gap between icon and text */
+      gap: 8px;
+    }
+    /* Navigation link wrapper */
+    .nav-links {
+      /* Flex container for buttons */
+      display: flex;
+      /* Gap between pills */
+      gap: 8px;
+      /* Align center */
+      align-items: center;
+    }
+    /* Navigation button pill style */
+    .nav-btn {
+      /* Remove default border */
+      border: none;
+      /* Transparent background by default */
+      background: transparent;
+      /* Padding inside pill */
+      padding: 8px 16px;
+      /* Rounded pill corners */
+      border-radius: 20px;
+      /* Font size */
+      font-size: 14px;
+      /* Font weight */
+      font-weight: 500;
+      /* Text color */
+      color: var(--text-muted);
+      /* Cursor pointer */
+      cursor: pointer;
+      /* Smooth color transition */
+      transition: all 0.2s ease;
+    }
+    /* Active navigation button state matching photo */
+    .nav-btn.active {
+      /* Active pill background */
+      background: var(--pill-active);
+      /* Active pill text color */
+      color: var(--brand-primary);
+      /* Semi-bold font */
+      font-weight: 600;
+    }
+    /* Hover state for nav buttons */
+    .nav-btn:hover:not(.active) {
+      /* Background on hover */
+      background: #F1F5F9;
+      /* Text color on hover */
+      color: var(--text-main);
+    }
+    /* Main content container */
+    main.container {
+      /* Maximum container width */
+      max-width: 960px;
+      /* Center container */
+      margin: 0 auto;
+      /* Padding around content */
+      padding: 60px 24px 40px;
+      /* Flex item expansion */
+      flex: 1;
+      /* Flex column */
+      display: flex;
+      /* Vertical flow */
+      flex-direction: column;
+      /* Center align items */
+      align-items: center;
+      /* Full width */
+      width: 100%;
+    }
+    /* Hero section styling */
+    .hero-section {
+      /* Center text */
+      text-align: center;
+      /* Bottom spacing */
+      margin-bottom: 48px;
+    }
+    /* Hero heading */
+    .hero-section h1 {
+      /* Large bold font */
+      font-size: 38px;
+      /* Font weight */
+      font-weight: 700;
+      /* Tighter letter spacing */
+      letter-spacing: -0.02em;
+      /* Primary text color */
+      color: var(--text-main);
+      /* Bottom margin */
+      margin-bottom: 12px;
+    }
+    /* Hero sub-description */
+    .hero-section p {
+      /* Subtitle font size */
+      font-size: 16px;
+      /* Muted text color */
+      color: var(--text-muted);
+      /* Line height */
+      line-height: 1.5;
+    }
+    /* Grid layout for self-serve deflection cards */
+    .card-grid {
+      /* Grid display */
+      display: grid;
+      /* Responsive three column layout */
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      /* Gap between cards */
+      gap: 24px;
+      /* Full width */
+      width: 100%;
+      /* Bottom margin */
+      margin-bottom: 40px;
+    }
+    /* Individual card styling */
+    .action-card {
+      /* Card surface color */
+      background: var(--card-bg);
+      /* Card border */
+      border: 1px solid var(--border-color);
+      /* Rounded corners */
+      border-radius: 16px;
+      /* Padding inside card */
+      padding: 28px 24px;
+      /* Soft shadow */
+      box-shadow: var(--card-shadow);
+      /* Display flex */
+      display: flex;
+      /* Vertical flow */
+      flex-direction: column;
+      /* Transition on hover */
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      /* Pointer cursor */
+      cursor: pointer;
+    }
+    /* Hover effect on card */
+    .action-card:hover {
+      /* Slight elevation */
+      transform: translateY(-3px);
+      /* Deeper shadow */
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+    }
+    /* Card icon box */
+    .card-icon {
+      /* Font size for emoji icon */
+      font-size: 28px;
+      /* Bottom margin */
+      margin-bottom: 16px;
+    }
+    /* Card title */
+    .action-card h3 {
+      /* Font size */
+      font-size: 18px;
+      /* Font weight */
+      font-weight: 600;
+      /* Text color */
+      color: var(--text-main);
+      /* Bottom margin */
+      margin-bottom: 8px;
+    }
+    /* Card description text */
+    .action-card p {
+      /* Description font size */
+      font-size: 14px;
+      /* Muted color */
+      color: var(--text-muted);
+      /* Line height */
+      line-height: 1.5;
+      /* Flex grow to push action link to bottom */
+      flex: 1;
+      /* Bottom margin */
+      margin-bottom: 20px;
+    }
+    /* Card action button / link */
+    .card-link {
+      /* Accent color */
+      color: var(--brand-primary);
+      /* Semi-bold text */
+      font-weight: 600;
+      /* Font size */
+      font-size: 14px;
+      /* Flex alignment */
+      display: flex;
+      /* Align center */
+      align-items: center;
+      /* Gap before arrow */
+      gap: 6px;
+    }
+    /* Lookup Modal / Interactive Search Overlay */
+    .lookup-panel {
+      /* Background card */
+      background: #FFFFFF;
+      /* Border */
+      border: 1px solid var(--border-color);
+      /* Border radius */
+      border-radius: 16px;
+      /* Padding */
+      padding: 24px;
+      /* Full width */
+      width: 100%;
+      /* Box shadow */
+      box-shadow: var(--card-shadow);
+      /* Margin bottom */
+      margin-bottom: 32px;
+      /* Hidden by default */
+      display: none;
+    }
+    /* Input field wrapper */
+    .lookup-form {
+      /* Flex row */
+      display: flex;
+      /* Gap between input and button */
+      gap: 12px;
+      /* Margin bottom */
+      margin-bottom: 16px;
+    }
+    /* Text input styling */
+    .lookup-input {
+      /* Expand full */
+      flex: 1;
+      /* Input padding */
+      padding: 12px 16px;
+      /* Border styling */
+      border: 1px solid var(--border-color);
+      /* Rounded corners */
+      border-radius: 10px;
+      /* Font size */
+      font-size: 15px;
+      /* Outline none */
+      outline: none;
+    }
+    /* Focus state on input */
+    .lookup-input:focus {
+      /* Highlight border */
+      border-color: var(--brand-primary);
+    }
+    /* Action submit button */
+    .lookup-btn {
+      /* Accent background */
+      background: var(--brand-primary);
+      /* White text */
+      color: #FFFFFF;
+      /* Remove border */
+      border: none;
+      /* Rounded corners */
+      border-radius: 10px;
+      /* Padding */
+      padding: 0 20px;
+      /* Font weight */
+      font-weight: 600;
+      /* Cursor pointer */
+      cursor: pointer;
+    }
+    /* Result card display */
+    .result-box {
+      /* Background tint */
+      background: #F8FAFC;
+      /* Border */
+      border: 1px solid var(--border-color);
+      /* Padding */
+      padding: 16px;
+      /* Rounded corners */
+      border-radius: 10px;
+      /* Font size */
+      font-size: 14px;
+      /* Line height */
+      line-height: 1.6;
+      /* Hidden until queried */
+      display: none;
+    }
+    /* Floating Chat Drawer Widget */
+    .chat-widget-toggle {
+      /* Fixed position */
+      position: fixed;
+      /* Bottom offset */
+      bottom: 24px;
+      /* Right offset */
+      right: 24px;
+      /* Background accent */
+      background: var(--brand-primary);
+      /* Text color */
+      color: #FFFFFF;
+      /* Padding */
+      padding: 14px 20px;
+      /* Rounded pill */
+      border-radius: 30px;
+      /* Shadow */
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      /* Remove border */
+      border: none;
+      /* Semi-bold text */
+      font-weight: 600;
+      /* Cursor */
+      cursor: pointer;
+      /* Flex row */
+      display: flex;
+      /* Align items */
+      align-items: center;
+      /* Gap */
+      gap: 8px;
+    }
+    /* Chat window overlay */
+    .chat-window {
+      /* Fixed positioning */
+      position: fixed;
+      /* Bottom offset */
+      bottom: 84px;
+      /* Right offset */
+      right: 24px;
+      /* Fixed width */
+      width: 360px;
+      /* Fixed height */
+      height: 480px;
+      /* Surface color */
+      background: #FFFFFF;
+      /* Border */
+      border: 1px solid var(--border-color);
+      /* Rounded corners */
+      border-radius: 16px;
+      /* Box shadow */
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      /* Flex column */
+      display: flex;
+      /* Vertical flow */
+      flex-direction: column;
+      /* Hidden initially */
+      display: none;
+      /* Overflow hidden */
+      overflow: hidden;
+    }
+    /* Chat header */
+    .chat-header {
+      /* Padding */
+      padding: 14px 16px;
+      /* Background */
+      background: #F8FAFC;
+      /* Border bottom */
+      border-bottom: 1px solid var(--border-color);
+      /* Flex layout */
+      display: flex;
+      /* Space between */
+      justify-content: space-between;
+      /* Align center */
+      align-items: center;
+    }
+    /* Chat messages container */
+    .chat-messages {
+      /* Flex grow */
+      flex: 1;
+      /* Vertical scroll */
+      overflow-y: auto;
+      /* Padding */
+      padding: 16px;
+      /* Display flex */
+      display: flex;
+      /* Vertical flow */
+      flex-direction: column;
+      /* Gap between bubbles */
+      gap: 10px;
+    }
+    /* Chat message bubble */
+    .chat-msg {
+      /* Max width */
+      max-width: 85%;
+      /* Padding */
+      padding: 8px 12px;
+      /* Rounded corners */
+      border-radius: 12px;
+      /* Font size */
+      font-size: 13px;
+      /* Line height */
+      line-height: 1.4;
+    }
+    /* User chat bubble */
+    .chat-msg.user {
+      /* Self align right */
+      align-self: flex-end;
+      /* User bubble color */
+      background: var(--brand-primary);
+      /* White text */
+      color: #FFFFFF;
+    }
+    /* Bot chat bubble */
+    .chat-msg.bot {
+      /* Self align left */
+      align-self: flex-start;
+      /* Bot bubble color */
+      background: #F1F5F9;
+      /* Text color */
+      color: var(--text-main);
+    }
+    /* Chat input form */
+    .chat-form {
+      /* Padding */
+      padding: 12px;
+      /* Border top */
+      border-top: 1px solid var(--border-color);
+      /* Display flex */
+      display: flex;
+      /* Gap */
+      gap: 8px;
+    }
+    /* Chat text input */
+    .chat-input {
+      /* Flex expand */
+      flex: 1;
+      /* Padding */
+      padding: 8px 12px;
+      /* Border */
+      border: 1px solid var(--border-color);
+      /* Rounded */
+      border-radius: 8px;
+      /* Font size */
+      font-size: 13px;
+    }
+    /* Footer section matching screenshot */
+    footer.page-footer {
+      /* Text center */
+      text-align: center;
+      /* Padding */
+      padding: 24px;
+      /* Font size */
+      font-size: 13px;
+      /* Muted color */
+      color: var(--text-muted);
+      /* Border top */
+      border-top: 1px solid var(--border-color);
+      /* Background */
+      background: #FFFFFF;
+    }
+  </style>
+</head>
+<!-- Body section -->
+<body>
+
+  <!-- Navigation header -->
+  <header class="navbar">
+    <!-- Brand Logo -->
+    <a href="#" class="brand-logo" onclick="showSection('home')">
+      <!-- Icon representation -->
+      <span>⭐</span> Northstar Support
+    </a>
+    <!-- Top Navigation Links -->
+    <nav class="nav-links">
+      <!-- Home tab (active by default) -->
+      <button class="nav-btn active" id="tab-home" onclick="showSection('home')">Home</button>
+      <!-- Track Order tab -->
+      <button class="nav-btn" id="tab-order" onclick="showSection('order')">Track an Order</button>
+      <!-- Check Stock tab -->
+      <button class="nav-btn" id="tab-stock" onclick="showSection('stock')">Check Availability</button>
+      <!-- Returns tab -->
+      <button class="nav-btn" id="tab-return" onclick="showSection('return')">Returns & Refunds</button>
+    </nav>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="container">
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <!-- Main title from photo -->
+      <h1>How can we help you today?</h1>
+      <!-- Subheading from photo -->
+      <p>Get an instant answer without waiting for an agent. Choose what you need below.</p>
+    </div>
+
+    <!-- Self-Serve Action Cards (Grid) -->
+    <div class="card-grid" id="card-grid">
+      
+      <!-- Card 1: Order Status -->
+      <div class="action-card" onclick="showSection('order')">
+        <!-- Package icon -->
+        <div class="card-icon">📦</div>
+        <!-- Card heading -->
+        <h3>Where is my order?</h3>
+        <!-- Card description matching prompt -->
+        <p>Enter your Order ID to see the current status, latest carrier updates, and your expected delivery date.</p>
+        <!-- Card link -->
+        <div class="card-link">Track an order &rarr;</div>
+      </div>
+
+      <!-- Card 2: Stock Availability -->
+      <div class="action-card" onclick="showSection('stock')">
+        <!-- Tag / ruler icon -->
+        <div class="card-icon">🏷️</div>
+        <!-- Card heading -->
+        <h3>Is this in my size?</h3>
+        <!-- Card description matching prompt -->
+        <p>Enter a product and size to check whether it's in stock, and when it's expected back if not.</p>
+        <!-- Card link -->
+        <div class="card-link">Check availability &rarr;</div>
+      </div>
+
+      <!-- Card 3: Returns & Refunds -->
+      <div class="action-card" onclick="showSection('return')">
+        <!-- Return icon -->
+        <div class="card-icon">🔄</div>
+        <!-- Card heading -->
+        <h3>Returns & Refunds</h3>
+        <!-- Card description -->
+        <p>Check the status of your return request, refund processing timeline, or schedule a return pickup.</p>
+        <!-- Card link -->
+        <div class="card-link">Manage returns &rarr;</div>
+      </div>
+
+    </div>
+
+    <!-- Quick Search Lookup Panel (Revealed when clicking a card or nav tab) -->
+    <div class="lookup-panel" id="lookup-panel">
+      <!-- Dynamic Panel Title -->
+      <h3 id="panel-title" style="margin-bottom: 12px;">Track an Order</h3>
+      <!-- Dynamic Form -->
+      <form class="lookup-form" onsubmit="handleLookup(event)">
+        <!-- Text Input Field -->
+        <input type="text" class="lookup-input" id="lookup-input" placeholder="Enter Order ID (e.g. NS-1001)...">
+        <!-- Submit Button -->
+        <button type="submit" class="lookup-btn" id="lookup-btn">Search</button>
+      </form>
+      <!-- Results Display Container -->
+      <div class="result-box" id="result-box"></div>
+    </div>
+
+  </main>
+
+  <!-- Floating Assistant Toggle Button -->
+  <button class="chat-widget-toggle" onclick="toggleChat()">
+    <!-- Chat emoji -->
+    💬 Need Help? Chat with Us
+  </button>
+
+  <!-- Floating Chat Window Overlay -->
+  <div class="chat-window" id="chat-window">
+    <!-- Chat Header -->
+    <div class="chat-header">
+      <!-- Title -->
+      <strong style="font-size: 14px;">Northstar Support AI</strong>
+      <!-- Close button -->
+      <button onclick="toggleChat()" style="background: none; border: none; cursor: pointer; font-size: 16px;">&times;</button>
+    </div>
+    <!-- Messages Feed -->
+    <div class="chat-messages" id="chat-messages">
+      <!-- Initial greeting -->
+      <div class="chat-msg bot">Hi! I can track your order, verify return tickets, or check stock availability instantly. How can I help?</div>
+    </div>
+    <!-- Chat Input Form -->
+    <form class="chat-form" onsubmit="handleChatSubmit(event)">
+      <!-- Message input -->
+      <input type="text" class="chat-input" id="chat-input" placeholder="Type a question...">
+      <!-- Send Button -->
+      <button type="submit" class="lookup-btn" style="padding: 0 12px; font-size: 13px;">Send</button>
+    </form>
+  </div>
+
+  <!-- Footer with exact text from photo -->
+  <footer class="page-footer">
+    Still stuck? Our support team is available Mon-Fri, 8am-6pm EAT.
+  </footer>
+
+  <!-- Include Frontend Logic Script -->
+  <script src="/static/script.js"></script>
+</body>
+</html>
