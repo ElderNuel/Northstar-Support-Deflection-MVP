@@ -11,12 +11,23 @@ A lightweight, hybrid support deflection prototype built for **Northstar Retail 
 - **Returns & Refunds**
 - **Stock Availability**
 
-Built as part of a **1-week industry working simulation by Group 36**.
+Built as part of a **1-week industry working simulation by Group 36 - Team Syntactix**.
+
+---
+
+## 🌐 Live Demo
+
+The MVP is deployed on **Render** and is publicly accessible:
+
+👉 **[Launch Northstar Support Hub](https://northstar-support-deflection-mvp.onrender.com)**
+
+> The live application provides order tracking, stock availability, returns & refunds, and an interactive support chatbot.
 
 ---
 
 ## 📖 Table of Contents
 
+- [Live Demo](#live-demo)
 - [Project Overview](#project-overview)
 - [Key Features](#key-features)
 - [Architecture & Tech Stack](#architecture--tech-stack)
@@ -61,7 +72,7 @@ By leveraging offline **Regular Expression (Regex) parsing** instead of costly c
 ## 📂 File Structure
 
 ```text
-📦 northstar-sprint-mvp
+📦 northstar-support-deflection-mvp
  ┣ 📜 main.py                 # FastAPI backend server & regex routing logic
  ┣ 📜 index.html              # Frontend user interface & dashboard layout
  ┣ 📜 script.js               # Client-side logic & API fetch requests
@@ -84,9 +95,10 @@ Before you begin, make sure you have:
 
 ### Step 1: Clone the Repository
 
+Replace the placeholder repository URL with the actual GitHub repository URL:
+
 ```bash
-git clone https://github.com/MakurWai-ajokNyidier/GROUP36.git
-cd chatbot-group36
+git clone https://github.com/ElderNuel/Northstar-Support-Deflection-MVP.git
 ```
 
 ### Step 2: Create and Activate a Virtual Environment
@@ -249,13 +261,13 @@ To improve production readiness, the following enhancements are recommended:
 
 ## 👥 Contributors
 
-### Group 36
+### Group 36 - Syntactix
 
 This sprint was successfully executed collaboratively by:
 
 - **Swaleh Rama**
-- **Emmanuel Chijinkem Ukah**
 - **Tracy Wangari**
+- **Emmanuel Chijinkem Ukah**
 - **Abraham Makur Mayor Nyidier**
 - **Milkah Michira**
 
